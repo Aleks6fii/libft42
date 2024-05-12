@@ -6,13 +6,13 @@
 /*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 19:35:02 by afilippo          #+#    #+#             */
-/*   Updated: 2024/05/10 20:17:45 by afilippo         ###   ########.fr       */
+/*   Updated: 2024/05/12 18:33:45 by afilippo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	num_length(long num)
+static int	num_length(long num)
 {
 	int	count;
 
@@ -33,6 +33,8 @@ static void	*if_alloc_fail(char *smth)
 {
 	if (!smth)
 		return (NULL);
+	else 
+		return (smth);
 }
 
 char	*ft_itoa(int n)

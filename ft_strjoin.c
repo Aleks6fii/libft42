@@ -6,7 +6,7 @@
 /*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 17:36:51 by afilippo          #+#    #+#             */
-/*   Updated: 2024/05/10 17:38:04 by afilippo         ###   ########.fr       */
+/*   Updated: 2024/05/12 18:37:07 by afilippo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	pt = (char *) malloc(len_s1 + len_s1 + 1);
 	if (!pt)
 		return (NULL);
+	i = 0;
 	while (i <= len_s1)
 	{
 		pt[i] = s1[i];

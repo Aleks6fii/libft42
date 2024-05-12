@@ -6,13 +6,13 @@
 /*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 17:52:12 by afilippo          #+#    #+#             */
-/*   Updated: 2024/05/10 19:26:59 by afilippo         ###   ########.fr       */
+/*   Updated: 2024/05/12 15:43:44 by afilippo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_words(char const *str, char c)
+static int	count_words(char const *str, char c)
 {
 	int	count;
 	int	trg;
