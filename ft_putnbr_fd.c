@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 18:03:24 by afilippo          #+#    #+#             */
-/*   Updated: 2024/05/08 20:57:03 by afilippo         ###   ########.fr       */
+/*   Created: 2024/05/12 15:05:31 by afilippo          #+#    #+#             */
+/*   Updated: 2024/05/12 15:31:59 by afilippo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-int	ft_isalpha(char *str)
+void	ft_putnbr_fd(int n, int fd)
 {
-	while (*str != '\0')
+	char	digit;
+
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else if (n < 0)
 	{
-		if ((*str >= 'a' && *str <= 'z') || (*str >= 'A' && *str <= 'Z'))
-			str++;
-		else
-			return (1);
+		write(fd, "-", 1);
+		n = -n;
+		ft_putnbr_fd(n, fd);
 	}
-	return (0);
+	else 
+	{
+		if (n <= 9)
+		{
+			digit = n + '0';
+			write(fd, &digit, 1);
+		}
+		else 
+		{
+			ft_putnbr_fd(n / 10, fd);
+			ft_putnbr_fd(n % 10, fd);
+		}
+	}
 }

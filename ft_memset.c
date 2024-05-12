@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/08 21:06:09 by afilippo          #+#    #+#             */
+/*   Updated: 2024/05/08 21:06:36 by afilippo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void ft_memset(void *str, int c, size_t l)
+void	ft_memset(void *str, int c, size_t l)
 {
-    unsigned char *temp;
-    temp = (unsigned char *)str;
+	unsigned char	*temp;
 
-    while (l != 0)
-    {
-        *(temp++) = (unsigned char) c;
-        l--;
-    }
+	temp = (unsigned char *)str;
+	while (l != 0)
+	{
+		*(temp++) = (unsigned char) c;
+		l--;
+	}
 }
 
 // #include <stdio.h>

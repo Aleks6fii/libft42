@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 18:03:24 by afilippo          #+#    #+#             */
-/*   Updated: 2024/05/08 20:57:03 by afilippo         ###   ########.fr       */
+/*   Created: 2024/05/08 20:59:52 by afilippo          #+#    #+#             */
+/*   Updated: 2024/05/08 21:01:30 by afilippo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_isalpha(char *str)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	while (*str != '\0')
+	unsigned char	*str;
+	size_t			i;
+	unsigned char	uch;
+
+	i = 0;
+	str = (unsigned char *) s;
+	uch = (unsigned char) c;
+	while (i < n)
 	{
-		if ((*str >= 'a' && *str <= 'z') || (*str >= 'A' && *str <= 'Z'))
-			str++;
-		else
-			return (1);
+		if (str[i] == uch) 
+			return ((void *) &str[i]);
+		i++;
 	}
-	return (0);
+	return (NULL);
 }
+
+// int main(void) {
+//     char test[] = "khkgjekrdrg";
+//     char c = 'g';
+//     void *p = ft_memchr(test, c, 6);
+//     return 0;
+// }

@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 18:03:24 by afilippo          #+#    #+#             */
-/*   Updated: 2024/05/08 20:57:03 by afilippo         ###   ########.fr       */
+/*   Created: 2024/05/12 14:30:55 by afilippo          #+#    #+#             */
+/*   Updated: 2024/05/12 14:48:54 by afilippo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-int	ft_isalpha(char *str)
+void	ft_putchar_fd(char c, int fd)
 {
-	while (*str != '\0')
-	{
-		if ((*str >= 'a' && *str <= 'z') || (*str >= 'A' && *str <= 'Z'))
-			str++;
-		else
-			return (1);
-	}
-	return (0);
+	write(fd, &c, 1);
 }

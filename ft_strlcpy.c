@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 21:03:24 by afilippo          #+#    #+#             */
-/*   Updated: 2024/05/08 21:03:44 by afilippo         ###   ########.fr       */
+/*   Created: 2024/05/10 17:39:08 by afilippo          #+#    #+#             */
+/*   Updated: 2024/05/10 17:39:29 by afilippo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_memcpy(void *dst, const void *src, size_t n)
+size_t	ft_strlcpy(char *str1, const char *str2, size_t n)
 {
-	unsigned char	*temp_dst;
-	unsigned char	*temp_src;
+	unsigned int	src_len;
 
-	temp_dst = (unsigned char *)dst;
-	temp_src = (unsigned char *)src;
-	while (n != 0)
+	src_len = ft_strlen(str2);
+	if (src_len + 1 < n)
+		ft_memcpy(str1, str2, src_len + 1);
+	else if (n != 0)
 	{
-		*temp_dst = *temp_src;
-		temp_dst++;
-		temp_src++;
-		n--;
+		ft_memcpy(str1, str2, n - 1);
+		str1[n - 1] = 0;
 	}
+	return (src_len);
 }
 
-// #include <stdio.h>
 // int main(void) {
-//     char test[] = "khkgjekr";
+//     char test[] = "khkgjekrdrg";
 //     char c[] = "hello";
-//     ft_memcpy(test, c, 5);
+//     ft_strlcpy(test, c, 6);
 //     printf("", test);
 //     return 0;
 // }

@@ -1,14 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/08 20:58:23 by afilippo          #+#    #+#             */
+/*   Updated: 2024/05/08 20:59:38 by afilippo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-int ft_isprint(char *str)
+int	ft_isprint(int c)
 {
-    char *next;
-	next = str + 1;
-	if (*str >= 32 && *str <= 126)
-    {
-		if (*next == '\0') 
-            return (1);
-        else 
-            return (0);
-    }
+	if (c >= 32 && c <= 126)
+		return (1);
+	else
+		return (0);
 }

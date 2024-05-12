@@ -1,38 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 21:03:24 by afilippo          #+#    #+#             */
-/*   Updated: 2024/05/08 21:03:44 by afilippo         ###   ########.fr       */
+/*   Created: 2024/05/08 21:03:56 by afilippo          #+#    #+#             */
+/*   Updated: 2024/05/10 17:51:44 by afilippo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_memcpy(void *dst, const void *src, size_t n)
+void	ft_memmove(void *str1, const void *str2, size_t n)
 {
 	unsigned char	*temp_dst;
 	unsigned char	*temp_src;
+	unsigned int	i;
 
-	temp_dst = (unsigned char *)dst;
-	temp_src = (unsigned char *)src;
-	while (n != 0)
+	temp_dst = (unsigned char *)str1;
+	temp_src = (unsigned char *)str2;
+	i = 0;
+	if (temp_dst > temp_src)
 	{
-		*temp_dst = *temp_src;
-		temp_dst++;
-		temp_src++;
-		n--;
+		while (n != 0)
+		{
+			temp_dst[n] = temp_src[n];
+			n--;
+		}
+	}
+	else
+	{
+		while (i <= n)
+		{
+			temp_dst[i] = temp_src[i];
+			i++;
+		}
 	}
 }
 
-// #include <stdio.h>
 // int main(void) {
 //     char test[] = "khkgjekr";
 //     char c[] = "hello";
-//     ft_memcpy(test, c, 5);
+//     ft_memmove(test, c, 6);
 //     printf("", test);
 //     return 0;
 // }

@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 18:03:24 by afilippo          #+#    #+#             */
-/*   Updated: 2024/05/08 20:57:03 by afilippo         ###   ########.fr       */
+/*   Created: 2024/05/10 17:42:46 by afilippo          #+#    #+#             */
+/*   Updated: 2024/05/10 17:43:27 by afilippo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-int	ft_isalpha(char *str)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	while (*str != '\0')
+	size_t	i;
+	size_t	j;
+	size_t	little_len;
+
+	i = 0;
+	little_len = ft_strlen(little);
+	if (little[0] == '\0')
+		return ((char *)big);
+	while (big[i] && i + little_len < len)
 	{
-		if ((*str >= 'a' && *str <= 'z') || (*str >= 'A' && *str <= 'Z'))
-			str++;
-		else
-			return (1);
+		j = 0;
+		while (big[i + j] == little[j] && big[i + j] && i + j < len)
+			j++;
+		if (little[j] == 0)
+			return ((char *)big + i);
+		i++;
 	}
-	return (0);
+	return (NULL);
 }

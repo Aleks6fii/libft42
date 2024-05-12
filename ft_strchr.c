@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 18:03:24 by afilippo          #+#    #+#             */
-/*   Updated: 2024/05/08 20:57:03 by afilippo         ###   ########.fr       */
+/*   Created: 2024/05/10 17:33:53 by afilippo          #+#    #+#             */
+/*   Updated: 2024/05/10 17:35:39 by afilippo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int	ft_isalpha(char *str)
+char	*ft_strchr(const char *s, int c)
 {
-	while (*str != '\0')
+	char	ch;
+	int		i;
+
+	ch = (char) c;
+	while (s[i] != '\0') 
 	{
-		if ((*str >= 'a' && *str <= 'z') || (*str >= 'A' && *str <= 'Z'))
-			str++;
-		else
-			return (1);
+		if (s[i] == ch)
+			return ((char *) &s[i]);
+		i++;
 	}
+	if (s[i] == ch)
+		return ((char *) &s[i]);
 	return (0);
 }

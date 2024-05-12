@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 18:03:24 by afilippo          #+#    #+#             */
-/*   Updated: 2024/05/08 20:57:03 by afilippo         ###   ########.fr       */
+/*   Created: 2024/05/10 17:36:51 by afilippo          #+#    #+#             */
+/*   Updated: 2024/05/10 17:38:04 by afilippo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-int	ft_isalpha(char *str)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	while (*str != '\0')
+	int		len_s1;
+	int		len_s2;
+	int		i;
+	char	*pt;
+
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
+	pt = (char *) malloc(len_s1 + len_s1 + 1);
+	if (!pt)
+		return (NULL);
+	while (i <= len_s1)
 	{
-		if ((*str >= 'a' && *str <= 'z') || (*str >= 'A' && *str <= 'Z'))
-			str++;
-		else
-			return (1);
+		pt[i] = s1[i];
+		i++;
 	}
-	return (0);
+	i = 0;
+	while (i <= len_s2)
+	{
+		pt[i + len_s1] = s2[i];
+		i++;
+	}
+	pt[i + len_s1] = '\0';
+	return (pt);
 }

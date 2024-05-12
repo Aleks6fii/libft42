@@ -1,17 +1,25 @@
-#include <unistd.h>
-// #include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/08 20:55:51 by afilippo          #+#    #+#             */
+/*   Updated: 2024/05/08 20:55:56 by afilippo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_isalnum(char *str)
+#include <unistd.h>
+
+int	ft_isalnum(int c)
 {
-    char *next;
-	next = str + 1;
-	if ((*str >= '0' && *str <= '9') || (*str >= 'a' && *str <= 'z') || (*str >= 'A' && *str <= 'Z'))
-    {
-		if (*next == '\0') 
-            return (1);
-        else 
-            return (0);
-    }
+	if ((c >= '0' && c <= '9')
+		|| (c >= 'a' && c <= 'z')
+		|| (c >= 'A' && c <= 'Z'))
+		return (1);
+	else
+		return (0);
 }
 
 // int main(void) {

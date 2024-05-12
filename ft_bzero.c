@@ -1,16 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/08 20:34:37 by afilippo          #+#    #+#             */
+/*   Updated: 2024/05/08 20:45:50 by afilippo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void ft_bzero(void *dst, size_t n)
+void	ft_bzero(void *dst, size_t n)
 {
-    unsigned char *temp;
+	unsigned char	*temp;
 
-    temp = (unsigned char *)dst;
-
-    while (n != 0)
-    {
-        *temp++ = 0;
-        n--;
-    }
+	temp = (unsigned char *)dst;
+	while (n != 0)
+	{
+		*temp++ = 0;
+		n--;
+	}
 }
 
 // #include <stdio.h>
