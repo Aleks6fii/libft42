@@ -6,13 +6,13 @@
 /*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 21:03:24 by afilippo          #+#    #+#             */
-/*   Updated: 2024/05/08 21:03:44 by afilippo         ###   ########.fr       */
+/*   Updated: 2024/05/12 19:05:42 by afilippo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	unsigned char	*temp_dst;
 	unsigned char	*temp_src;
@@ -26,6 +26,7 @@ void	ft_memcpy(void *dst, const void *src, size_t n)
 		temp_src++;
 		n--;
 	}
+	return (dst);
 }
 
 // #include <stdio.h>

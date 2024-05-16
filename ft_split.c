@@ -6,7 +6,7 @@
 /*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 17:52:12 by afilippo          #+#    #+#             */
-/*   Updated: 2024/05/12 15:43:44 by afilippo         ###   ########.fr       */
+/*   Updated: 2024/05/12 20:21:47 by afilippo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,14 @@ static void	*if_alloc_fail(char **smth)
 {
 	if (!smth)
 		return (NULL);
+	else
+		return (smth);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
-	size_t	i;
+	int		i;
 	int		j;
 	int		start;
 
@@ -83,11 +85,11 @@ char	**ft_split(char const *s, char c)
 	start = -1;
 	result = ft_calloc(count_words(s, c), sizeof(char *));
 	if_alloc_fail(result);
-	while (i < ft_strlen(s))
+	while ((size_t)i < ft_strlen(s))
 	{
 		if (s[i] != c && start < 0)
 			start = i;
-		else if ((s[i] == c || i == ft_strlen(s)) && start >= 0)
+		else if ((s[i] == c || (size_t)i == ft_strlen(s)) && start >= 0)
 		{
 			result[j] = putword(s, start, i);
 			if (!(result[j]))

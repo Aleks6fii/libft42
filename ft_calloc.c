@@ -6,7 +6,7 @@
 /*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 20:54:43 by afilippo          #+#    #+#             */
-/*   Updated: 2024/05/08 20:55:18 by afilippo         ###   ########.fr       */
+/*   Updated: 2024/05/13 15:49:45 by afilippo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,21 @@
 
 void	*ft_calloc(size_t number, size_t size)
 {
-	void	*pt;
-	size_t	check;
+	char	*pt;
+	int		check;
+	int		i;
 
-	check = number * size;
-	if (number != 0 && check / number != size)
+	check = (int)number * (int)size;
+	if (number == 0 || size == 0)
+		check = 1;
+	else if ((check / (int)number != (int)size) || check < 0)
 		return (NULL);
-	if (check == 0)
-		return (NULL);
-	pt = (void *)malloc(size * number);
-	return (pt);
+	pt = malloc(check);
+	i = 0;
+	while (i < check)
+	{
+		pt[i] = 0;
+		i++;
+	}
+	return ((void *) pt);
 }

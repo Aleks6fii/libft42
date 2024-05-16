@@ -6,13 +6,13 @@
 /*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 21:03:56 by afilippo          #+#    #+#             */
-/*   Updated: 2024/05/10 17:51:44 by afilippo         ###   ########.fr       */
+/*   Updated: 2024/05/12 19:14:51 by afilippo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_memmove(void *str1, const void *str2, size_t n)
+void	*ft_memmove(void *str1, const void *str2, size_t n)
 {
 	unsigned char	*temp_dst;
 	unsigned char	*temp_src;
@@ -37,6 +37,7 @@ void	ft_memmove(void *str1, const void *str2, size_t n)
 			i++;
 		}
 	}
+	return(str1);
 }
 
 // int main(void) {

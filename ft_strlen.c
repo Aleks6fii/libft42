@@ -6,13 +6,13 @@
 /*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 17:39:37 by afilippo          #+#    #+#             */
-/*   Updated: 2024/05/10 17:40:21 by afilippo         ###   ########.fr       */
+/*   Updated: 2024/05/12 19:58:15 by afilippo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
 	int	i;
 

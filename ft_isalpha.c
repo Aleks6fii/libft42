@@ -6,20 +6,15 @@
 /*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 18:03:24 by afilippo          #+#    #+#             */
-/*   Updated: 2024/05/08 20:57:03 by afilippo         ###   ########.fr       */
+/*   Updated: 2024/05/12 19:19:56 by afilippo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_isalpha(char *str)
+int	ft_isalpha(int c)
 {
-	while (*str != '\0')
-	{
-		if ((*str >= 'a' && *str <= 'z') || (*str >= 'A' && *str <= 'Z'))
-			str++;
-		else
-			return (1);
-	}
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
 	return (0);
 }

@@ -6,11 +6,11 @@
 /*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 18:59:49 by afilippo          #+#    #+#             */
-/*   Updated: 2024/05/04 19:04:22 by afilippo         ###   ########.fr       */
+/*   Updated: 2024/05/12 19:21:34 by afilippo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	result;
 	int	sign;
