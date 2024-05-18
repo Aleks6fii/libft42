@@ -47,7 +47,7 @@ SRC =  ft_atoi.c \
 
 NAME = libft.a
 
-CC = clang
+CC = gcc
 
 FLAG = -Wall -Werror -Wextra 
 

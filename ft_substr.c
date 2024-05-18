@@ -25,11 +25,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	if (start + len > strlen)
 		len = strlen - start;
-	pt = malloc(sizeof(char) * (len + 1));
+	pt = malloc(len + 1);
 	if (!pt)
 		return (NULL);
 	i = 0;
-	while ((i < len) || s[i + start])
+	while (i < len)
 	{
 		pt[i] = *(s + i + start);
 		i++;
@@ -37,3 +37,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	pt[i] = '\0';
 	return (pt);
 }
+
+// #include <string.h>
+// #include <stdio.h>
+// int main(void){
+// 	char *s = ft_substr("tripouille", 1, 1);
+// 	printf("%s \n", s);
+//     int res = !(strcmp(s, "r"));
+// 	printf("%d \n", res);
+// 	return 0;
+// }

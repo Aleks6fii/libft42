@@ -18,12 +18,14 @@ void	*ft_calloc(size_t number, size_t size)
 	int		check;
 	int		i;
 
-	check = (int)number * (int)size;
+	check = number * size;
 	if (number == 0 || size == 0)
 		check = 1;
-	else if ((check / (int)number != (int)size) || check < 0)
+	else if ((check / number != size) || check < 0)
 		return (NULL);
 	pt = malloc(check);
+	if (!pt)
+		return (NULL);
 	i = 0;
 	while (i < check)
 	{
@@ -32,3 +34,18 @@ void	*ft_calloc(size_t number, size_t size)
 	}
 	return ((void *) pt);
 }
+
+// #include <stdio.h>
+// #include <limits.h>
+// #include <stdint.h> // this includes size_max 
+// #include <stdlib.h>
+
+// int main(void)
+// {
+// 	// int res = (ft_calloc(SIZE_MAX, SIZE_MAX) == NULL);
+// 	// printf("%d ", res);
+
+// 	printf("sizemax is %zu ", SIZE_MAX);
+
+// 	return 0;
+// }
