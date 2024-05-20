@@ -23,7 +23,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	len_s2 = 0;
 	if (s1)
 		len_s1 = ft_strlen(s1);
-	else if (s2)
+	if (s2)
 		len_s2 = ft_strlen(s2);
 	pt = malloc(len_s1 + len_s2 + 1);
 	if (!pt)
@@ -40,6 +40,18 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		pt[i + len_s1] = s2[i];
 		i++;
 	}
-	pt[len_s1 + len_s1] = '\0';
+	pt[len_s1 + len_s2] = '\0';
 	return (pt);
 }
+
+// #include <string.h>
+// #include <stdio.h>
+// int main(void) {
+// 	// char *s = ft_strjoin("berlin", "42");
+// 	// int test = strcmp(s, "berlin42");
+// 	char *s = ft_strjoin("", "42");
+// 	int test = strcmp(s, "42");
+// 	printf("%s \n", s);
+// 	printf("%d \n", test);
+// 	return 0;
+// }

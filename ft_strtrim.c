@@ -29,7 +29,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 		l++;
 	while (trim(set, s1[r]))
 		r--;
-	return (trimmed(s1, l, r));
+	if (l > r)
+		return (ft_strdup(""));
+	else
+		return (trimmed(s1, l, r));
 }
 
 static int	trim(char const *set, char c)
@@ -51,16 +54,29 @@ static char	*trimmed(char const *str, size_t start, size_t end)
 	char	*pt;
 	size_t	i;
 
-	if (start >= end)
-		return (ft_strdup(""));
-	pt = (char *) malloc(start - end + 1); 
+	pt = malloc(end - start + 2); 
 	if (!pt) 
 		return (NULL);
 	i = 0;
-	while (i <= end)
+	while (i <= end - start)
 	{
 		pt[i] = str[start + i];
 		i++;
 	}
+	pt[i] = '\0';
 	return (pt);
 }
+
+// #include <string.h>
+// #include <stdio.h>
+// int main(void) {
+// 	// char *s = ft_strtrim("   xxxtripouille", " x");
+// 	// char *s = ft_strtrim("   xxxtripouille   xxx", " x");
+// 	// char *s = ft_strtrim("   xxx   xxx", " x");
+//     // int tst = strcmp(s, "tripouille");
+// 	char *s = ft_strtrim("abcdba", "acb");
+// 	int tst = strcmp(s, "d");
+// 	printf("%s \n", s);
+// 	printf("%d \n", tst);
+// 	return 0;
+// }
