@@ -39,12 +39,12 @@ static char	*putword(char const *str, int start, int end)
 	int		i;
 
 	i = 0;
-	word = (char *) malloc(end - start + 1);
+	word = malloc(end - start + 1);
 	if (!word)
 		return (NULL);
 	while (i + start < end)
 	{
-		word[i] = str[start + 1];
+		word[i] = str[start + i];
 		i++;
 	}
 	word[i] = '\0';
@@ -83,13 +83,21 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	j = 0;
 	start = -1;
-	result = ft_calloc(count_words(s, c), sizeof(char *));
+	// printf("count words is %d \n", count_words(s, c)); // count words OK
+	result = ft_calloc(count_words(s, c) + 1, sizeof(char *));
 	if_alloc_fail(result);
-	while ((size_t)i < ft_strlen(s))
+	//
+	// printf("c is %s \n", c);
+	// printf("last char is %s \n", s[-1]); // null term OK
+	// int t = (s[-1] == c);
+	// printf("test %d \n", t);
+	//
+	// printf("strlen s is: %d \n", ft_strlen(s));
+	while (i <= (int)ft_strlen(s))
 	{
 		if (s[i] != c && start < 0)
 			start = i;
-		else if ((s[i] == c || (size_t)i == ft_strlen(s)) && start >= 0)
+		else if ((s[i] == c || i == (int)ft_strlen(s)) && start >= 0)
 		{
 			result[j] = putword(s, start, i);
 			if (!(result[j]))
@@ -99,5 +107,24 @@ char	**ft_split(char const *s, char c)
 		}
 		i++;
 	}
+	result[j] = NULL;
 	return (result);
 }
+
+
+// #include <string.h>
+// #include <stdio.h>
+
+// int main(void) {
+
+// 	// char **tab = ft_split("  tripouille  42  ", ' ');
+// 	char **tab = ft_split("tripouille", 0); 
+// 	int i = 0;
+//     while (tab[i] != NULL) {  // null-term is OK 
+//         printf("%s\n", tab[i]);
+//         i++;
+//     }
+
+// 	return 0;
+// }
+
